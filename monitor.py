@@ -2,7 +2,7 @@ import requests
 import time
 
 # REEMPLAZA ESTO con la URL que copiaste de Discord
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1483929241555828921/giOM9BG0fYVkhPUh_P5qQQ8cBUQ5hJMB02fKu_V9uORLaipILI2C-ub5XIY6AfNdU1Jq"
+DISCORD_WEBHOOK_URL = "url de tu webhook"
 URL_APP = "http://localhost:8000/health"
 
 def enviar_alerta(mensaje):
