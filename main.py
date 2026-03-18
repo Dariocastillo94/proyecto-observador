@@ -1,7 +1,7 @@
-from fastapi import Fastapi
+from fastapi import FastAPI
 import os
 
-app = FastApi()
+app = FastAPI()
 
 @app.get("/")
 def read_root():
