@@ -1,20 +1,33 @@
-# monitor.py
 import requests
 import time
 
-URL = "http://localhost:8000/health"
+# REEMPLAZA ESTO con la URL que copiaste de Discord
+DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1483929241555828921/giOM9BG0fYVkhPUh_P5qQQ8cBUQ5hJMB02fKu_V9uORLaipILI2C-ub5XIY6AfNdU1Jq"
+URL_APP = "http://localhost:8000/health"
+
+def enviar_alerta(mensaje):
+    data = {"content": f"🚨 **ALERTA DE SISTEMA** 🚨\n{mensaje}"}
+    try:
+        requests.post(DISCORD_WEBHOOK_URL, json=data)
+    except Exception as e:
+        print(f"Error enviando a Discord: {e}")
 
 def check_system():
     try:
-        response = requests.get(URL)
+        response = requests.get(URL_APP, timeout=3)
         if response.status_code == 200:
-            print(f"✅ SISTEMA OK: {response.json()}")
+            print("✅ SISTEMA OK")
         else:
-            print(f"⚠️ ALERTA: Código de estado {response.status_code}")
-    except Exception as e:
-        print("🚨 CRÍTICO: La aplicación está caída. Notificando al equipo...")
+            msg = f"El servicio respondió con error {response.status_code}"
+            print(f"⚠️ {msg}")
+            enviar_alerta(msg)
+    except Exception:
+        msg = "La aplicación está totalmente CAÍDA (Down)"
+        print(f"🚨 {msg}")
+        enviar_alerta(msg)
 
 if __name__ == "__main__":
+    print("Iniciando monitor con alertas de Discord...")
     while True:
         check_system()
-        time.sleep(10) # Revisa cada 10 segundos
+        time.sleep(10)
