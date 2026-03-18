@@ -19,5 +19,5 @@ No es solo una API, es un ecosistema de despliegue y vigilancia.
 * **Health Checks:** Endpoint específico para que los balanceadores de carga sepan el estado del servicio.
 * **Alerting:** Notificaciones proactivas antes de que el usuario reporte el error.
 
-* Como se vería el mensaje
+### Como se vería el mensaje en Discord al tener una incidencia
 <img width="473" height="448" alt="image" src="https://github.com/user-attachments/assets/d1e916cf-b735-4bd1-b225-a43e9f0c74b5" />
