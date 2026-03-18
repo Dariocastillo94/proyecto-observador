@@ -2,6 +2,7 @@
 
 Este proyecto simula un entorno de producción donde la disponibilidad es crítica. 
 No es solo una API, es un ecosistema de despliegue y vigilancia.
+Como dato:La url usada ya no esta disponible por lo que si quieres probarlo debes usar una propia, pero si vas a subirlo aqui mejor usa una variable de entorno para evitar que te envien spam o algo peor. 
 
 ### 🚀 Tecnologías
 * **Backend:** FastAPI (Python)
