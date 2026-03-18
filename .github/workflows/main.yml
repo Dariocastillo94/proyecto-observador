@@ -1,0 +1,23 @@
+name: CI Pipeline
+
+on: [push] # Se activa con cada push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v2
+
+      - name: Configurar Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Instalar dependencias
+        run: pip install fastapi uvicorn
+
+      - name: Simular Test de Operaciones
+        run: |
+          echo "Verificando sintaxis del código..."
+          python -m py_compile main.py
